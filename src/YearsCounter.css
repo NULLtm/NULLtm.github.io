@@ -1,0 +1,8 @@
+.main {
+    display: inline-block; /* Allows setting width */
+    width: 100px;          /* Fixed width */
+}
+
+.tail {
+    margin-left: 40px;
+}
