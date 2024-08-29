@@ -34,7 +34,9 @@ const App = () => {
             <img id="github" src={github} alt="Github Icon"></img>
         </a>
       </div>
-      <a href='#name' id="to_projects" className="enter-button">
+      <a href='#name' id="to_projects" className="enter-button" onClick={(e) => {
+        alert('throw new NotYetImplementedException("I\'m too busy rn...")')
+      }}>
           <img id="buttonimg" src={imageSrc} alt="Button Icon"></img>
       </a>
     </div>
