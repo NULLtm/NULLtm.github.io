@@ -23,8 +23,8 @@ const App = () => {
         <a target="_blank" href='https://www.linkedin.com/in/nullthemoment/details/featured/1724919185322/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ' className="resume">{'>'} resume {'<'}</a>
       </div>
       <div className='code-block'>
-        Hi, my name is Owen. I am a bsms student, aspiring theorist, and enjoyer of all things
-        <br/>problem solving!
+        Hi, my name is <span className='highlighted'>Owen</span>. I am a <span className='highlighted'>bsms</span> student, aspiring <span className='highlighted'>professor</span>, and enjoyer of all things
+        <br/><span className='highlighted'>problem</span> solving! You can click any of the links on this page to learn more, <br/>or click down to see some of my projects.
       </div>
       <div className='links'>
         <a target="_blank" href='https://www.linkedin.com/in/nullthemoment/' className="linkedin">
@@ -34,6 +34,12 @@ const App = () => {
             <img id="github" src={github} alt="Github Icon"></img>
         </a>
       </div>
+      <a href='#name' id="to_projects" className="enter-button">
+          <img id="buttonimg" src={imageSrc} alt="Button Icon"></img>
+      </a>
+    </div>
+    <div className='projects'>
+
     </div>
     </>
   );
