@@ -20,7 +20,7 @@ const App = () => {
       <YearsCounter startDate="09/24/2003"></YearsCounter>
       <div className="school"><a target="_blank" href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ <span>university of washington</span></div>
       <div>
-        <a target="_blank" href='https://www.linkedin.com/in/nullthemoment/overlay/1705017002872/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ' className="resume">{'>'} resume {'<'}</a>
+        <a target="_blank" href='https://www.linkedin.com/in/nullthemoment/details/featured/1724919185322/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ' className="resume">{'>'} resume {'<'}</a>
       </div>
       <div className='code-block'>
         Hi, my name is Owen. I am a bsms student, aspiring theorist, and enjoyer of all things
