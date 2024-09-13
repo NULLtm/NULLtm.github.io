@@ -1,0 +1,13 @@
+.box {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-color: black;
+    border-width: 10px;
+    border-style: ridge;
+}
+
+.machine-icon {
+    width: 70px;
+    height: 70px;
+}
