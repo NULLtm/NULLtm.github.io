@@ -1,0 +1,163 @@
+import java.io.PrintStream;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
+
+//This class is something that helps handle huffman codes. It can create a huffman code from a file or scanner input of a code
+//save it, as well as translate an encoded file back into original.  
+public class HuffmanCode {
+    HuffmanNode head;
+    private static class HuffmanNode implements Comparable<HuffmanNode> {
+        HuffmanNode left;
+        HuffmanNode right;
+        int frequency;
+        int value;      
+        
+        public int compareTo(HuffmanNode other) {
+            return frequency - other.frequency;
+        }
+
+        public void HuffmanNode() {
+            value = 0;
+        }
+    }
+
+    //Behavior: Constructor that creates a huffman code from an int array
+    //Exceptions: Must be passed in a valid int array
+    //Returns: Nothing, creates a huffman code tree
+    //Parameters: An array of frequencies of each integer
+    public HuffmanCode(int[] frequencies) {
+        //Create a priority queue of HuffmanNodes
+        Queue<HuffmanNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.frequency, b.frequency));
+
+        for (int i = 0; i < frequencies.length; i++) {
+            if(frequencies[i] > 0) {
+                HuffmanNode temp = new HuffmanNode();
+                temp.value = i;
+                temp.frequency = frequencies[i];
+                pq.add(temp);
+            }
+        }      
+
+        //Adds them to each other 
+        while(pq.size() > 1) { 
+            HuffmanNode tempHead = new HuffmanNode();
+            tempHead.left  = pq.poll();
+            tempHead.right  = pq.poll();
+            tempHead.frequency = tempHead.left.frequency + tempHead.right.frequency;
+            
+            pq.add(tempHead); 
+        }
+
+        head = pq.poll();
+    }
+
+
+    //Behavior: Constructor that creates a huffman code from a scanner input of a huffman code file in the .code format
+    //Exceptions: Must be passed in an valid scanner input
+    //Returns: Nothing, creates a huffman code tree
+    //Parameters: A scanner input of a huffman code file
+    public HuffmanCode(Scanner input) {
+        head = new HuffmanNode();
+        while (input.hasNextLine()) {
+            int value = Integer.parseInt(input.nextLine());
+            String path = input.nextLine();
+            addRecursive(head, value, path);
+        }    
+    }
+
+    //Behavior: Recursive helper function for the previous constructor function
+    //Exceptions: Must be passed in an valid scanner input, correct value, and correct path
+    //Returns: Nothing, creates a huffman code tree
+    //Parameters: A valid scanner input, correct value, and correct path
+    private void addRecursive(HuffmanNode current, int value, String path) {
+        if (path.length() == 1) {
+            HuffmanNode temp = new HuffmanNode();
+            temp.value = value;
+            if (path.startsWith("0")) {
+                current.left = temp;
+            } 
+            
+            if (path.startsWith("1")) {                
+                current.right = temp;
+            }  
+        }
+
+        else {    
+            String tempPath = path.substring(1);
+            if (path.startsWith("0")) {
+                if (current.left == null) {
+                    current.left = new HuffmanNode();
+                }
+                addRecursive(current.left, value, tempPath);
+            } 
+            
+            if (path.startsWith("1")) {
+                if (current.right == null) {
+                    current.right = new HuffmanNode();
+                }
+                addRecursive(current.right, value, tempPath);
+            } 
+        }
+    } 
+ 
+
+    //Behavior: Saves the created huffman code to a file in the .code format
+    //Exceptions: Must be passed in a valid printstream output
+    //Returns: Nothing, creates a file with the huffman code in the .code format
+    //Parameters: A valid printstream output
+    public void save(PrintStream output) {
+        HuffmanNode root = head;
+        saveHelper(root, output,"");
+    }
+
+    //Behavior: A helper function for the previous save function
+    //Exceptions: Must be passed in a valid printstream output, huffman node, and a string representing the code
+    //Returns: Nothing, just iterates through the tree and prints to the output
+    //Parameters: A printstream output, huffman node, and a string representing the code
+    private void saveHelper(HuffmanNode node, PrintStream output, String code) {
+        String temp = code;
+        if (node.value != 0) {
+            output.append(node.value + "\n");
+            output.append(temp + "\n");
+        }
+
+        temp = code + "0"; 
+        if (node.left != null) { 
+            saveHelper(node.left, output, temp);
+        }
+
+        temp = temp.substring(0, temp.length() - 1);
+        temp = code + "1";
+        if (node.right != null) {
+            saveHelper (node.right, output, temp);
+        }
+    }
+
+    //Behavior: Translates an encoded file and writes the decoded version to an output file
+    //Exceptions: Must be passed in a valid bitinputstream input and valid printstream output
+    //Returns: Nothing, just prints the decoded version to an output file
+    //Parameters: A BitInputStream input and a PrintStream output
+    public void translate(BitInputStream input, PrintStream output) {
+        HuffmanNode temp = head;
+        while (input.hasNextBit()) {
+            if (temp.value != 0) {
+                output.append((char) temp.value);
+                temp = head;
+            }
+
+            else if(input.nextBit() == 0) {
+                temp = temp.left;
+            }
+
+            else {
+                temp = temp.right;
+            }             
+        }
+
+        if (temp.value != 0) {
+            output.append((char) temp.value);
+        }
+    }
+
+}
