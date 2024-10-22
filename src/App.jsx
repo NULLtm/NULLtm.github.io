@@ -1,230 +1,149 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import linkedin from './imgs/linkedin.png'
-import github from './imgs/github.png'
-import apple from './imgs/apple.png'
-import plum from './imgs/plum.png'
-import cherry from './imgs/cherry.png'
-import orange from './imgs/orange.png'
-import watermelon from './imgs/watermelon.png'
-import seven from './imgs/machine.png'
+import DropDown from './DropDown';
 import YearsCounter from './YearsCounter';
-import NextButton from './NextButton';
-import chevron from './imgs/button.png'
-import { useState } from 'react';
+import cornbear from './imgs/whynot.png';
+import sample from './resources/sample.txt';
+import sampleoutput from './resources/sampleoutput.txt';
+import owenpic from './imgs/IMG_5388.PNG';
 
-const source = `
-import java.util.*;
-import java.io.*;
-
-public class Client {
-    private int i;
-
-    private void foo() {
-        boolean b = false;
-        if(b == true) {
-
-        } else {
-        println("Hello There");
-        }
-    }
-}
-`
-
-const cornbear_output = `
-concepts: 
-🟡 Client.java @ [5] - field_should_be_local
-
-🔴 Client.java @ [9] - bad_if_else_structure
-
-🟢 Client.java @ [9] - bad_boolean_zen
-
-
-quality: 
-🟡 Client.java @ [12] - bad_indentation
-
-🟢 Client.java @ [4, 7] - missing_any_comment
-
-🟡 Client.java @ [5] - non_descriptive_field_names
-`
-
-const slotIcons = [apple, plum, cherry, orange, watermelon, seven]
 
 const App = () => {
 
-  const cornbearInitVal = "none";
-  const [cornbear, setCornbear] = useState(cornbearInitVal);
+  const [text, setText] = useState('');
+  const [textoutput, setTextoutput] = useState('');
 
-  const imagesInit = apple;
-  const [img1, setImg1] = useState(imagesInit);
-  const [img2, setImg2] = useState(imagesInit);
-  const [img3, setImg3] = useState(imagesInit);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res1 = await fetch(sample); // Replace with your file path
+      const data1 = await res1.text();
+      const res2 = await fetch(sampleoutput); // Replace with your file path
+      const data2 = await res2.text();
+      setText(data1);
+      setTextoutput(data2);
+    };
 
-  const balanceInit = 1000;
-  const [balance, setBalance] = useState(balanceInit);
-
-  const scramble = async (numTimes, setImage) => {
-    for(var i = 0; i < numTimes; ++i) {
-      setImage(slotIcons[Math.floor(Math.random() * slotIcons.length)])
-      await new Promise(r => setTimeout(r, 150));
-    }
-  }
+    fetchData();
+  }, []);
 
   return (
     <>
-    <label class="switch">
-      <input type="checkbox" onChange={(e) => {
-        if(e.target.checked) {
-          document.body.style.filter = "invert(1)";
-          document.body.style.backgroundColor = "#222222";
-        } else {
-          document.body.style.filter = "invert(0)";
-          document.body.style.backgroundColor = "#dddddd";
-        }
-      }}/>
-      <span class="slider round"></span>
-    </label>
-    {/* <div className='gambling'>
-      <div className='machine-title'>
-        Slot Machine
+    <img className='owen' src={owenpic} alt='owen'></img>
+    <div className='textbox'>
+      <p className='title'>Owen Boseley</p>
+      <p>aspiring professor and all encompassing nerd</p>
+      <p>incoming <a className='bsms' href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ University of Washington</p>
+      <YearsCounter startDate={new Date(2003, 8, 24)}/>
+      <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/overlay/1724919185322/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
+      <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin    </a>
+      <a className='links' href="https://github.com/NULLtm/cornbear">github</a></p>
+
+      <p className='title'>Goals <DropDown container='goals-container'/></p>
+      <div className='goals-container'>
+        <p className='goals'>Get an Internship: ✅</p>
+        <p className='goals'>TA: ✅</p>
+        <p className='goals'>TA for CSE311: ✅</p>
+        <p className='goals'>TA for CSE421: ✅</p>
+        <p className='goals'>TA for CSE312: ❌</p>
+        <p className='goals'>Summer Instruct: ❌</p>
+        <p className='goals'>Graduate from Undergrad: ❌</p>
+        <p className='goals'>Finish BSMS: ❌</p>
+        <p className='goals'>Get Employed as a Teacher: ❌</p>
+        <p className='goals'>Run a sub 1:23 Half-Marathon: ❌</p>
+        <p className='goals'>Run a sub 3:00 Marathon: ❌</p>
+        <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
       </div>
-      <div className='machine'>
-        <div className='window'>
-          <Box image={img1}/>
-          <Box image={img2}/>
-          <Box image={img3}/>
+
+      <p className='title'>Teaching <DropDown container='teaching-container'/></p>
+      <div className='teaching-container'>
+        <p className='assignment'>Spring 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23sp/">CSE123</a> @ University of Washington</p>
+        <p className='assignment'>Summer 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23su/">CSE123</a> @ University of Washington</p>
+        <p className='assignment'>Autumn 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/23au/">CSE311</a> @ University of Washington</p>
+        <p className='assignment'>Winter 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/24wi/">CSE311</a> @ University of Washington</p>
+        <p className='assignment'>Spring 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/24sp/">CSE311</a> @ University of Washington</p>
+        <p className='assignment'>Autumn 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/24au/">CSE421</a> @ University of Washington</p>
+      </div>
+
+      <p className='title'>Employment / Experience <DropDown container='jobs-container'/></p>
+      <div className='jobs-container'>
+        <p><a className='aws' href='https://aws.amazon.com/media-services/elemental/'>AWS</a> Software Engineer Intern</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Jun - Sep 2024</p>
+        <p className='jobs-point'>- Built an internal tool to automate support engineers’ work to address customer use cases while using AWS Elemental services which saves hours of manual work</p>
+        <p className='jobs-point'>- Learned build tools, version control hygiene, and code practices for working with large code bases</p>
+        <p className='jobs-point'>- Met with advisors and team members to discuss project milestones, assess concerns, and to brainstorm ideas for the
+        project</p>
+        </div>
+
+        <p><a className='aws' href='https://www.cs.washington.edu/students/ta'>CSE</a> Teaching Assistant</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Mar 2023 - Present</p>
+        <p className='jobs-point'>- Taught students in introductory programming, discrete math, and theoretical computer science courses</p>
+        <p className='jobs-point'>- Led sections of 30 students to communicate new material and answer questions</p>
+        <p className='jobs-point'>- Met with students both in office hours and in one-on-one meetings to help address their questions and concerns</p>
+        </div>
+
+        
+        vv Where did I start? :) vv
+
+        <p><a className='aws' href='https://www.harbormontessori.org/'>HMS</a> Maintenance Intern</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Jun 2022 - Sep 2022</p>
+        <p className='jobs-point'>- Helped school with a variety of maintenance projects on both campuses</p>
+        <p className='jobs-point'>- Learned skills in power tools, knots, plumbing, driving various vehicles, and painting</p>
+        </div>
+
+        <p><a className='aws' href='https://www.thehubgigharbor.com/'>Hub</a> Dish Washer</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Jun 2022 - Aug 2022</p>
+        <p className='jobs-point'>- Washed dishes, cleaned kitchen, helped out around the restaurant, and emptied garbage</p>
+        </div>
+
+        <p><a className='aws' href='https://www.invitedclubs.com/clubs/canterwood-golf-country-club'>Canterwood Country Club</a> Dish Washer</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Jun 2021 - Sep 2021</p>
+        <p className='jobs-point'>- Washed dishes, cleaned kitchen, helped out around the restaurant, and emptied garbage</p>
         </div>
       </div>
-      <div className='controls'>
-        <div className='spin'>
-          <button className='spin-button' onClick={(e) => {
-            scramble(20, setImg1);
-            scramble(30, setImg2);
-            scramble(40, setImg3);
-          }}></button>
+
+      <p className='title'>Projects / Research <DropDown container='projects-container'/></p>
+      <div className='projects-container'>
+      <div className='block'>
+        <p className='subtitle'>Cornbear Grading Assistant <img className='cornbear' src={cornbear} alt='cornbear'></img></p>
+        <div className='line'></div>
+        <p>For the last year I have led a culmination of static analysis and CSEd research project called Cornbear. <br></br> Our goal is to provide an efficient and useful grading assistant to our <a href='https://courses.cs.washington.edu/courses/cse14x/ta/'>CSE12X</a> TAs @ UW!</p>
+        <p>Below is a small example of our work, showing some code and the analysis from cornbear</p>
+        <div className='example'>
+          <p className='code source'>{text}</p>
+          <div className='vertline'></div>
+          <p className='code output'>{textoutput}</p>
         </div>
-        <span className='balance'>Balance: {balance}</span>
-        <label className='bet'>
-          Bet:
-          <input></input>
-        </label>
       </div>
-    </div>
-    <button className='open'></button> */}
-    <div id='title'>
-      <div id="hi">
-        <span>Hi</span><span id='aftertitle'>_</span>
+      <div className='line'></div>
       </div>
-      <NextButton next='#about'/>
-    </div>
-    <div id='about'>
-      <div id="name">Owen Boseley</div>
-      <YearsCounter startDate="09/24/2003"></YearsCounter>
-      <div className="school"><a target="_blank" href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ <span>university of washington</span></div>
-      <div>
-        <a target="_blank" href='https://www.linkedin.com/in/nullthemoment/details/featured/1724919185322/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ' className="resume">{'>'} resume {'<'}</a>
+
+      <p className='title'>Courses <DropDown container='skills-container'/></p>
+      <div className='skills-container'>
+        <p>Computer Science:</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse121/'>CSE121</a>: Introduction to Computer Programming I</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse122/'>CSE122</a>: Introduction to Computer Programming II</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse123/'>CSE123</a>: Introduction to Computer Programming III</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse311/'>CSE311</a>: Foundations of Computing I</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse312/'>CSE312</a>: Foundations of Computing II</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse331/'>CSE331</a>: Software Design and Implementation</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse332/'>CSE332</a>: Data Structures and Parallelism</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse333/'>CSE333</a>: Systems Programming</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse421/'>CSE421</a>: Introduction to Algorithms</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse422/'>CSE422</a>: Advanced Toolkit for Modern Algorithms</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse431/'>CSE431</a>: Introduction to Theory of Computation</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse521/'>CSE521</a>: Design and Analysis of Algorithms I</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse493g1/24wi/'>CSE493G</a>: Deep Learning</p>
       </div>
-      <div className='code-block'>
-        Hi, my name is <span className='highlighted'>Owen</span>. I am a <span className='highlighted'>bsms</span> student, aspiring <span className='highlighted'>professor</span>, and enjoyer of all things
-        <br/><span className='highlighted'>problem</span> solving! You can click any of the links on this page to learn more, <br/>or click down to see some of my projects.
-      </div>
-      <div id='links'>
-        <a target="_blank" href='https://www.linkedin.com/in/nullthemoment/' className="linkedin">
-          <img id="linkedin" src={linkedin} alt="Linkedin Icon"></img>
-        </a>
-        <a className="github" target="_blank" href='https://github.com/NULLtm'>
-            <img id="github" src={github} alt="Github Icon"></img>
-        </a>
-      </div>
-      <NextButton next='#projects'/>
-    </div>
-    <div id='projects'>
-      <div className='project-container'>
-          {/* <div className="project-line">h</div> */}
-          <div className='project-title'>Cornbear Grading Assistant<span id='aftertitle'>_</span></div>
-          <div className='project-links'>
-            <span className='project-link'><button onClick={(e) => {
-              alert('Repository is private at the moment, apologies...')
-            }} className="prolink" href="https://github.com/NULLtm">Repository</button></span>
-            <span className='project-link'><button onClick={(e) => {
-              if(cornbear !== "desc")
-                setCornbear("desc")
-              else
-                setCornbear("none")
-            }} className="prolink" href="">Info</button></span>
-            <span className='project-link'><button onClick={(e) => {
-              if(cornbear !== "try")
-                setCornbear("try")
-              else
-                setCornbear("none")
-            }} className="prolink" href="">Try it!</button></span>
-          </div>
-          { (cornbear == "desc") ?
-            <div className='project-description'>
-              <div id="cornbear-desc" className='code-block'>
-                <span className='highlighted'>Project Overview:</span><br/><br/>
-
-                I helped start a small project to build autograding and static analysis tools for help in
-                grading<br/> CSE123 work at UW! We might have started small, but we have grown as a team to over 20 active members!
-
-                <br/>
-                <br/><span className='highlighted'><a className='plainlink' href='https://www.inc.com/bill-murphy-jr/google-recruiters-say-these-5-resume-tips-including-x-y-z-formula-will-improve-your-odds-of-getting-hired-at-google.html'>X (What):</a></span><br/><br/>
-
-                Programmed and researched using static analysis libraries in Java to create a tool for pulling
-                <br/>and analyzing student code according to course grading policies.
-
-                <br/>
-                <br/><span className='highlighted'><a className='plainlink' href='https://www.inc.com/bill-murphy-jr/google-recruiters-say-these-5-resume-tips-including-x-y-z-formula-will-improve-your-odds-of-getting-hired-at-google.html'>Y (Proof):</a></span><br/><br/>
-
-                Our <span className='highlighted'><a className='plainlink' href=''>project</a></span> has helped cut down grading times dramatically, by upwards of <span className='highlighted'>3</span> hours.<br/>Additionally we have also been able to make more accurate grades than TAs alone.<br/>In a study of <span className='highlighted'>500</span> student submissions, Cornbear found errors TAs did not in up to <span className='highlighted'>25%</span> of submissions.
-
-                <br/>
-                <br/><span className='highlighted'><a className='plainlink' href='https://www.inc.com/bill-murphy-jr/google-recruiters-say-these-5-resume-tips-including-x-y-z-formula-will-improve-your-odds-of-getting-hired-at-google.html'>Z (How):</a></span><br/><br/>
-
-                Throughout the quarter we as a team meet weekly to discuss projects, ideas, and distribution of work.<br/>Additionally we have been meeting with teaching staff and plan to further our work by<br/>
-                presenting our research and meeting with professors in the field.
-                
-            
-              </div>
-            </div> : null
-          }
-          { (cornbear == "try") ?
-            <div className='cornbear-try'>
-              <div>
-                <div className="cornbear-source-title">Source Code</div>
-                <div id="cornbear-source" className='code-block'>
-                {
-                  source
-                }
-                </div>
-              </div>
-              <div id="cornbear-run-container">
-                <div id="cornbear-try-text">Run now!</div>
-                <button id="cornbear-run" onClick={ (e) => {
-                  var text = "";
-                  const destination = document.getElementById("cornbear-output");
-                  destination.innerHTML = "";
-                  for(var i = 0; i < cornbear_output.length; ++i) {
-                    console.log(text);
-                    text += cornbear_output[i];
-                    //destination.innerHTML = text;
-                    setTimeout(() => {}, 500);
-                  }
-                }}>
-                  <img src={chevron} alt="chevron" id="chevron-button"></img>
-                </button>
-              </div>
-              <div>
-                <div className="cornbear-source-title">Cornbear Output</div>
-                <div id="cornbear-output" className='code-block'>
-                {
-                  cornbear_output
-                }
-                </div>
-              </div>
-            </div> : null
-          }
-      </div>
-      
     </div>
     </>
   );

@@ -1,400 +1,156 @@
-#name {
-  padding-top: 200px;
-  padding-bottom: 18px;
-  font-size: 2.0rem;
+.textbox {
+  padding-left: 30px;
+  padding-top: 20px;
 }
 
-#to_projects {
-  margin-bottom: 400px;
-  margin-top: -60px;
-  height: 5px;
+.assignment {
+  font-size: 15px;
 }
 
-.highlighted {
-  color: orange;
-}
-
-.school {
-  padding-top: 3px;
-}
-
-#linkedin {
-  width: 35px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
-  margin-left: -20px;
-}
-
-#github {
-  width: 30px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
-  margin-left: 30px;
-}
-
-.resume {
-  display: block;
-  text-decoration: none; /* Removes underline */
-  color: inherit;        /* Optional: Inherits the text color from the parent element */
-  margin-top: 3px;
-}
-
-.code-block {
-  background-color: #2e2e2e; /* Dark background color for the editor look */
-  color: #f8f8f2; /* Light text color to contrast with the background */
-  border: 1px solid #444; /* Border to mimic editor styling */
-  padding: 5px;
-  border-radius: 10px;
-  font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
-  white-space: pre; /* Preserve whitespace and formatting */
-  font-size: medium;
-  line-height: 1.5; /* Adjust line-height for readability */
-}
-
-.resume:hover {
-  color: #858585;
-}
-
-#links {
+.goals-container {
   margin-top: 30px;
 }
-
-.plainlink {
-  text-decoration: none; /* Removes underline */
-  color: inherit;        /* Optional: Inherits the text color from the parent element */
+.goals-container-clicked {
+  margin-top: 30px;
+  display: none;
+}
+.teaching-container {
+  margin-top: 30px;
+}
+.teaching-container-clicked {
+  margin-top: 30px;
+  display: none;
+}
+.skills-container {
+  margin-top: 30px;
+}
+.skills-container-clicked {
+  margin-top: 30px;
+  display: none;
+}
+.projects-container {
+  margin-top: 30px;
+}
+.projects-container-clicked {
+  margin-top: 30px;
+  display: none;
+}
+.jobs-container {
+  margin-top: 30px;
+}
+.jobs-point {
+  font-size: 15px;
 }
 
-.plainlink:hover {
-  color: chocolate;
+.links {
+  text-decoration: none;
 }
 
-.project-container {
-  height: 100vh;
-}
-
-.project-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;     /* Centers vertically */
-  text-align: center;      /* Ensures text is centered */
-}
-
-.project-title {
-  padding-top: 50px;
-  text-align: center;
+.aws {
   font-weight: bold;
-  font-size: 2.5rem; /* Enlarges the text (adjust size as needed) */
+  text-decoration: none;
 }
 
-.project-link {
-  margin-right: 30px;
-  text-align: center;
-  font-size: 30px;
+.aws:hover {
+  color: blueviolet
 }
 
-.gambling {
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 500px;
-  width: 300px;
-  background-color: #b3b3b3;
-  border-width: 10px;
-  border-radius: 20px;
-  border-color: #2e2e2e;
-  border-style: double;
-  overflow: hidden;
-  animation: 4s alternate opengamble;
-  animation-fill-mode: forwards;
+.links:hover {
+  color: blueviolet
 }
 
-@keyframes opengamble {
-  from {
-    height: 25px;
-  }
-  to {
-    height: 500px;
-  }
+.paragraph {
+
 }
 
-.open {
-  position: fixed;
-  top: 0;
-  right: 10px;
-  width: 300px;
-  height: 25px;
-  margin-top: 10px;
-  background-color: #757575;
-}
-
-.machine {
-  height: 200px;
-}
-
-.spin {
-  display: flex;
-  justify-content: center;
-}
-
-.cornbear-try {
+.example {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-top: 100px;
 }
 
-#cornbear-source {
-  width: 350px;
-  padding-left: 20px;
+.code {
+  white-space: pre;
+  overflow-y: scroll;
+  height: 300px;
+  border-color: black;
+  color:rgb(234, 234, 234);
+  background-color: rgb(34, 34, 34);
+  border-width: 10px;
 }
 
-#cornbear-output {
-  overflow: hidden;
-  animation-name: typing;
-  animation-duration: 5s;
+.source {
+  border: solid;
+  border-radius: 9px;
+  padding: 10px;
+  width: 600px;
 }
 
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+.output {
+  border: solid;
+  border-radius: 9px;
+  padding: 10px;
+  width: 800px;
 }
 
-#cornbear-run {
-  height: 100px;
-  position: relative;
-  top: 25%;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-#cornbear-run-container {
-  margin-left: 50px;
-  margin-right: 50px;
-  text-align: center;
-}
-
-.cornbear-source-title {
-  text-align: center;
-  font-weight: bolder;
-  font-size: larger;
-}
-
-#chevron-button {
-  width: 150px;
-  height: 100px;
-  transform: rotate(270deg)
-}
-
-#cornbear-try-text {
-  position: relative;
-  top: 25%;
-  font-weight: bolder;
-  font-size: larger;
-}
-
-#cornbear-run:hover img {
-  filter: invert(54%) sepia(25%) saturate(8%) hue-rotate(325deg) brightness(93%) contrast(91%);
-}
-
-.spin-button {
-  display: block;
+.owen {
   width: 100px;
+  height: 200px;
+  position: absolute;
+  left: 500px;
+  top: 25px;
+  border-style:solid;
+  border-width: 7px;
+}
+
+
+.jobs-container-clicked {
+  margin-top: 30px;
+  display: none;
+}
+
+.cornbear {
+  width: 70px;
+  border-width: 100px;
+}
+
+.sub {
+  font-size: 13px;
+}
+
+.block {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.line {
+  background-color: black;
+  height: 3px;
+}
+.vertline {
+  background-color: black;
+  width: 10px;
+}
+
+.goals {
+  font-size: small;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+p {
+  font-size: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 50%;
-  border-width: 10px;
-  height: 100px;
-  background-color: #f83b3b;
 }
 
-.window {
-  display: flex;
-  flex-direction: row;
-}
-
-.machine-icon {
-  width: 50px;
-  height: 50px;
-}
-
-.window {
-  padding-top: 70px;
-  justify-content: center;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-}
-
-.spin-button:active {
-  background-color: #992424;
-}
-
-.balance {
+.title {
   font-size: 30px;
-  font-weight: bolder;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.bet {
-  font-size: 19px;
-  font-weight: bolder;
-}
-
-.machine-title {
-  padding-top: 50px;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-.switch {
-  position: absolute;
-  display: inline-block;
-  margin-top: 7px;
-  margin-left: 7px;
-  width: 48px;
-  height: 22px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #757575;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 13px;
-  width: 13px;
-  left: 4px;
-  bottom: 4px;
-  background-color: rgb(38, 38, 38);
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #505050;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.project-links {
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 40px;
-  text-decoration: underline;
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-.prolink {
-  text-decoration: none; /* Removes underline */
-  color: inherit;        /* Optional: Inherits the text color from the parent element */
-  border: none;
-  font: inherit;
-  background: none;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#cornbear-desc {
-  overflow: hidden;
-  max-height: 0;
-  animation: 4s alternate corndesc;
-  animation-fill-mode: forwards;
-}
-
-@keyframes corndesc {
-  to {
-    max-height: 800px;
-  }
-  from {
-    max-height: 0;
-  }
-}
-
-.prolink:hover {
-  color: #444;
-}
-
-.project-line {
-    background-color: black;
-    font-size: 10px;
-}
-
-#projects {
-  margin-top: 100px;
-}
-
-#about {
-  font-size: 1.4rem; /* Enlarges the text (adjust size as needed) */
-  font-weight: normal; /* Makes the text bold */
-  margin: 0;                /* Removes default margin if needed */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;     /* Centers vertically */
-  text-align: center;      /* Ensures text is centered */
-  height: 100vh;           /* Makes the element take the full viewport height */
-}
-
-#title {
-  height: 100vh;
-  font-size: 2.5rem; /* Enlarges the text (adjust size as needed) */
-  font-weight: bold; /* Makes the text bold */
-}
-
-#aftertitle {
-  margin-left: 5px;
-  font-size: 2.0rem; /* Enlarges the text (adjust size as needed) */
-  animation: blink 2s step-start infinite; /* Apply blinking animation */
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-#hi {
-  padding-top: 300px;
-  text-align: center;
+.subtitle {
+  font-size: 25px;
+  font-weight: bold;
 }

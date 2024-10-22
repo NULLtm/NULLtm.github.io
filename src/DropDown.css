@@ -1,0 +1,19 @@
+.image {
+  width: 13px;
+  height: 10px;
+}
+
+.image:hover {
+  width: 15px;
+  height: 12px;
+}
+
+.image-clicked {
+  width: 15px;
+  transform: scaleY(-1);
+}
+
+.button {
+  background: none;
+  border: none;
+}

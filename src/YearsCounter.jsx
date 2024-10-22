@@ -25,9 +25,9 @@ const YearsCounter = ({ startDate }) => {
   }, [startDate]);
 
   return (
-    <div>
-      <span className='main'>{years.toFixed(8)}</span> <span className='tail'>years old</span>
-    </div>
+    <>
+      <p>{years.toFixed(8)}</p>
+    </>
   );
 };
 

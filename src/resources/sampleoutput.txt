@@ -1,0 +1,36 @@
+_________                    ___.                        
+\_   ___ \  ___________  ____\_ |__   ____ _____ _______ 
+/    \  \/ /  _ \_  __ \/    \| __ \_/ __ \\__  \\__  __ \
+\     \___(  <_> )  | \/   |  \ \_\ \  ___/ / __ \|  | \/
+ \______  /\____/|__|  |___|  /___  /\___  >____  /__|   
+        \/                  \/    \/     \/     \/      
+[NOTE] Verbose Mode On!
+[NOTE] Lessons: [p1]
+[NOTE] Keep Files: false
+[NOTE] Using proxies: [CONSOLE, LOCAL]
+Lesson Running: p1
+--------------------------
+[LOCAL] Loading files [resources/student/HuffmanCode.java]
+[LOCAL] Generating submission objects
+2024-10-17T17:08:52.023112: Grading Submission: {local@host - 0}
+------------------
+
+concepts: 
+🟢 HuffmanCode.java @ [15] - non_private_fields
+
+🟢 HuffmanCode.java @ [22, 26, 115, 147] - extra_public_methods
+
+🟢 HuffmanCode.java @ [37] - forbidden_features_java_8_functional_features
+
+🟢 HuffmanCode.java @ [15, 17, 18, 19, 20] - missing_access_modifier
+
+
+quality: 
+🟢 HuffmanCode.java @ [12, 62, 121] - long_lines
+
+🟢 HuffmanCode.java @ [16, 22, 26] - missing_any_comment
+
+
+------------------
+2024-10-17T17:08:52.927308: DONE!
+2024-10-17T17:08:52.927884: Clearing Submission Directory...
