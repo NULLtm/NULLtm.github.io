@@ -31,8 +31,8 @@ const App = () => {
     <img className='owen' src={owenpic} alt='owen'></img>
     <div className='textbox'>
       <p className='title'>Owen Boseley</p>
-      <p>aspiring professor and all encompassing nerd</p>
-      <p>incoming <a className='bsms' href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ University of Washington</p>
+      <p>I like thoery.</p>
+      <p><a className='bsms' href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ University of Washington</p>
       <YearsCounter startDate={new Date(2003, 8, 24)}/>
       <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/overlay/1724919185322/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
       <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin    </a>
@@ -44,11 +44,12 @@ const App = () => {
         <p className='goals'>TA: ✅</p>
         <p className='goals'>TA for CSE311: ✅</p>
         <p className='goals'>TA for CSE421: ✅</p>
-        <p className='goals'>TA for CSE312: ❌</p>
-        <p className='goals'>Summer Instruct: ❌</p>
-        <p className='goals'>Graduate from Undergrad: ❌</p>
+        <p className='goals'>TA for CSE312: ✅</p>
+        <p className='goals'>TA for CSE431: ✅</p>
+        <p className='goals'>Do Research: ✅</p>
+        <p className='goals'>Graduate from Undergrad: ✅</p>
         <p className='goals'>Finish BSMS: ❌</p>
-        <p className='goals'>Get Employed as a Teacher: ❌</p>
+        <p className='goals'>Get into a PhD Program: ❌</p>
         <p className='goals'>Run a sub 1:23 Half-Marathon: ❌</p>
         <p className='goals'>Run a sub 3:00 Marathon: ❌</p>
         <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
@@ -62,6 +63,10 @@ const App = () => {
         <p className='assignment'>Winter 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/24wi/">CSE311</a> @ University of Washington</p>
         <p className='assignment'>Spring 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/24sp/">CSE311</a> @ University of Washington</p>
         <p className='assignment'>Autumn 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/24au/">CSE421</a> @ University of Washington</p>
+        <p className='assignment'>Winter 2025 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/25wi/">CSE421</a> @ University of Washington</p>
+        <p className='assignment'>Spring 2025 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/25sp/">CSE421</a> @ University of Washington</p>
+        <p className='assignment'>Autumn 2025 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse431/25au/">CSE431</a> @ University of Washington</p>
+        <p className='assignment'>Winter 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse312/26wi/">CSE312</a> @ University of Washington</p>
       </div>
 
       <p className='title'>Employment / Experience <DropDown container='jobs-container'/></p>
