@@ -5,7 +5,7 @@ import YearsCounter from './YearsCounter';
 import cornbear from './imgs/whynot.png';
 import sample from './resources/sample.txt';
 import sampleoutput from './resources/sampleoutput.txt';
-import owenpic from './imgs/IMG_5388.PNG';
+import owenpic from './imgs/IMG_7719.jpg';
 
 
 const App = () => {
@@ -31,12 +31,15 @@ const App = () => {
     <img className='owen' src={owenpic} alt='owen'></img>
     <div className='textbox'>
       <p className='title'>Owen Boseley</p>
-      <p>I like thoery.</p>
+      <p>I like theory.</p>
+      <p>nulltm01 [at] gmail [dot] com</p>
       <p><a className='bsms' href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ University of Washington</p>
       <YearsCounter startDate={new Date(2003, 8, 24)}/>
-      <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/overlay/1724919185322/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
+      <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/details/featured/1772130911222/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
       <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin    </a>
       <a className='links' href="https://github.com/NULLtm/cornbear">github</a></p>
+
+      <a className='parag'>Hi. You might be able to tell that I like to learn. I am always seeking new opportunities in academia, industry, education, and in personal life. Please reach out if you have any ideas!</a>
 
       <p className='title'>Goals <DropDown container='goals-container'/></p>
       <div className='goals-container'>
@@ -48,11 +51,13 @@ const App = () => {
         <p className='goals'>TA for CSE431: ✅</p>
         <p className='goals'>Do Research: ✅</p>
         <p className='goals'>Graduate from Undergrad: ✅</p>
+        <p className='goals'>Get a teaching job ❌</p>
         <p className='goals'>Finish BSMS: ❌</p>
         <p className='goals'>Get into a PhD Program: ❌</p>
         <p className='goals'>Run a sub 1:23 Half-Marathon: ❌</p>
         <p className='goals'>Run a sub 3:00 Marathon: ❌</p>
         <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
+        <p className='goals'>Run an Ultra-Marathon ❌</p>
       </div>
 
       <p className='title'>Teaching <DropDown container='teaching-container'/></p>
@@ -69,7 +74,7 @@ const App = () => {
         <p className='assignment'>Winter 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse312/26wi/">CSE312</a> @ University of Washington</p>
       </div>
 
-      <p className='title'>Employment / Experience <DropDown container='jobs-container'/></p>
+      {/* <p className='title'>Employment / Experience <DropDown container='jobs-container'/></p>
       <div className='jobs-container'>
         <p><a className='aws' href='https://aws.amazon.com/media-services/elemental/'>AWS</a> Software Engineer Intern</p>
         <div className='line'></div>
@@ -130,11 +135,10 @@ const App = () => {
         </div>
       </div>
       <div className='line'></div>
-      </div>
+      </div> */}
 
       <p className='title'>Courses <DropDown container='skills-container'/></p>
       <div className='skills-container'>
-        <p>Computer Science:</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse121/'>CSE121</a>: Introduction to Computer Programming I</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse122/'>CSE122</a>: Introduction to Computer Programming II</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse123/'>CSE123</a>: Introduction to Computer Programming III</p>
@@ -148,6 +152,13 @@ const App = () => {
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse431/'>CSE431</a>: Introduction to Theory of Computation</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse521/'>CSE521</a>: Design and Analysis of Algorithms I</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse493g1/24wi/'>CSE493G</a>: Deep Learning</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse525/'>CSE525</a>: Randomized Algorithms and Probabilistic Analysis</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse426/'>CSE426</a>: Cryptography</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse526/'>CSE526</a>: Graduate Cryptography</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse434/'>CSE434</a>: Quantum Computation</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse534/'>CSE534</a>: Graduate Quantum</p>
+        <p className='assignment'><a href='https://www.washington.edu/students/crscat/math.html'>MATH521</a>: Graduate Probability 1</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse599k/25au/'>CSE599K</a>: Algorithmic Robust Statistics</p>
       </div>
     </div>
     </>
