@@ -131,6 +131,7 @@
 .line {
   background-color: black;
   height: 3px;
+  width: 200px;
 }
 .vertline {
   background-color: black;

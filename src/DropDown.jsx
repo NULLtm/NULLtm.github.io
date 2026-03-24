@@ -4,7 +4,7 @@ import button from './imgs/button1.png'
 
 const DropDown = ({ container }) => {
 
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(true);
 
   const image = useRef();
 
@@ -22,7 +22,7 @@ const DropDown = ({ container }) => {
           image.current.className = 'image-clicked';
           setClicked(true);
         }
-      }} className='button'><img ref={image} src={button} alt='black triangle' className='image'></img></button>
+      }} className='button'><img ref={image} src={button} alt='black triangle' className='image-clicked'></img></button>
     </>
   );
 };

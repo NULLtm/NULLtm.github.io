@@ -31,18 +31,18 @@ const App = () => {
     <img className='owen' src={owenpic} alt='owen'></img>
     <div className='textbox'>
       <p className='title'>Owen Boseley</p>
-      <p>I like theory.</p>
+      <p>I like to learn.</p>
       <p>nulltm01 [at] gmail [dot] com</p>
       <p><a className='bsms' href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ University of Washington</p>
       <YearsCounter startDate={new Date(2003, 8, 24)}/>
       <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/details/featured/1772130911222/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
-      <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin    </a>
+      <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin</a>
       <a className='links' href="https://github.com/NULLtm/cornbear">github</a></p>
 
-      <a className='parag'>Hi. You might be able to tell that I like to learn. I am always seeking new opportunities in academia, industry, education, and in personal life. Please reach out if you have any ideas!</a>
+      <a className='parag'>Hi. I am always seeking new opportunities in academia, industry, education, and in personal life. Please reach out if you have any ideas! Click the arrows on each category to see more.</a>
 
       <p className='title'>Goals <DropDown container='goals-container'/></p>
-      <div className='goals-container'>
+      <div className='goals-container-clicked'>
         <p className='goals'>Get an Internship: ✅</p>
         <p className='goals'>TA: ✅</p>
         <p className='goals'>TA for CSE311: ✅</p>
@@ -51,9 +51,7 @@ const App = () => {
         <p className='goals'>TA for CSE431: ✅</p>
         <p className='goals'>Do Research: ✅</p>
         <p className='goals'>Graduate from Undergrad: ✅</p>
-        <p className='goals'>Get a teaching job ❌</p>
         <p className='goals'>Finish BSMS: ❌</p>
-        <p className='goals'>Get into a PhD Program: ❌</p>
         <p className='goals'>Run a sub 1:23 Half-Marathon: ❌</p>
         <p className='goals'>Run a sub 3:00 Marathon: ❌</p>
         <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
@@ -61,7 +59,7 @@ const App = () => {
       </div>
 
       <p className='title'>Teaching <DropDown container='teaching-container'/></p>
-      <div className='teaching-container'>
+      <div className='teaching-container-clicked'>
         <p className='assignment'>Spring 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23sp/">CSE123</a> @ University of Washington</p>
         <p className='assignment'>Summer 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23su/">CSE123</a> @ University of Washington</p>
         <p className='assignment'>Autumn 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/23au/">CSE311</a> @ University of Washington</p>
@@ -74,71 +72,69 @@ const App = () => {
         <p className='assignment'>Winter 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse312/26wi/">CSE312</a> @ University of Washington</p>
       </div>
 
-      {/* <p className='title'>Employment / Experience <DropDown container='jobs-container'/></p>
-      <div className='jobs-container'>
+      <p className='title'>Employment <DropDown container='jobs-container'/></p>
+      <div className='jobs-container-clicked'>
+        <p><a className='aws' href='https://www.amazonfuse.com/'>AWS</a> Software Development Intern</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Seattle WA, Jun - Sep 2025</p>
+        </div>
+
         <p><a className='aws' href='https://aws.amazon.com/media-services/elemental/'>AWS</a> Software Engineer Intern</p>
         <div className='line'></div>
         <div className='block'>
-        <p className='sub'>Jun - Sep 2024</p>
-        <p className='jobs-point'>- Built an internal tool to automate support engineers’ work to address customer use cases while using AWS Elemental services which saves hours of manual work</p>
-        <p className='jobs-point'>- Learned build tools, version control hygiene, and code practices for working with large code bases</p>
-        <p className='jobs-point'>- Met with advisors and team members to discuss project milestones, assess concerns, and to brainstorm ideas for the
-        project</p>
+        <p className='sub'>Portland OR, Jun - Sep 2024</p>
         </div>
 
-        <p><a className='aws' href='https://www.cs.washington.edu/students/ta'>CSE</a> Teaching Assistant</p>
+        <p><a className='aws' href='https://www.cs.washington.edu/students/ta'>Paul G. Allen</a> Teaching Assistant</p>
         <div className='line'></div>
         <div className='block'>
-        <p className='sub'>Mar 2023 - Present</p>
-        <p className='jobs-point'>- Taught students in introductory programming, discrete math, and theoretical computer science courses</p>
-        <p className='jobs-point'>- Led sections of 30 students to communicate new material and answer questions</p>
-        <p className='jobs-point'>- Met with students both in office hours and in one-on-one meetings to help address their questions and concerns</p>
+        <p className='sub'>Seattle WA Mar 2023 - Jun 2026</p>
         </div>
-
-        
-        vv Where did I start? :) vv
 
         <p><a className='aws' href='https://www.harbormontessori.org/'>HMS</a> Maintenance Intern</p>
         <div className='line'></div>
         <div className='block'>
-        <p className='sub'>Jun 2022 - Sep 2022</p>
-        <p className='jobs-point'>- Helped school with a variety of maintenance projects on both campuses</p>
-        <p className='jobs-point'>- Learned skills in power tools, knots, plumbing, driving various vehicles, and painting</p>
+        <p className='sub'>Gig Harbor WA, Jun 2022 - Sep 2022</p>
         </div>
 
         <p><a className='aws' href='https://www.thehubgigharbor.com/'>Hub</a> Dish Washer</p>
         <div className='line'></div>
         <div className='block'>
-        <p className='sub'>Jun 2022 - Aug 2022</p>
-        <p className='jobs-point'>- Washed dishes, cleaned kitchen, helped out around the restaurant, and emptied garbage</p>
+        <p className='sub'>Gig Harbor WA, Jun 2022 - Aug 2022</p>
         </div>
 
         <p><a className='aws' href='https://www.invitedclubs.com/clubs/canterwood-golf-country-club'>Canterwood Country Club</a> Dish Washer</p>
         <div className='line'></div>
         <div className='block'>
-        <p className='sub'>Jun 2021 - Sep 2021</p>
-        <p className='jobs-point'>- Washed dishes, cleaned kitchen, helped out around the restaurant, and emptied garbage</p>
+        <p className='sub'>Gig Harbor WA, Jun 2021 - Sep 2021</p>
         </div>
       </div>
 
-      <p className='title'>Projects / Research <DropDown container='projects-container'/></p>
-      <div className='projects-container'>
-      <div className='block'>
-        <p className='subtitle'>Cornbear Grading Assistant <img className='cornbear' src={cornbear} alt='cornbear'></img></p>
+      <p className='title'>Research <DropDown container='projects-container'/></p>
+      <div className='projects-container-clicked'>
+        <div className='block'>
+        <p className='subtitle'>Simple Proof Tools for Quantum Hardness of Approximation Results</p>
         <div className='line'></div>
-        <p>For the last year I have led a culmination of static analysis and CSEd research project called Cornbear. <br></br> Our goal is to provide an efficient and useful grading assistant to our <a href='https://courses.cs.washington.edu/courses/cse14x/ta/'>CSE12X</a> TAs @ UW!</p>
-        <p>Below is a small example of our work, showing some code and the analysis from cornbear</p>
-        <div className='example'>
-          <p className='code source'>{text}</p>
-          <div className='vertline'></div>
-          <p className='code output'>{textoutput}</p>
-        </div>
+        <p className='sub'>Oct 2025 - Jun 2026</p>
+        <p>I worked on a small project with Professor Mitali Bafna to come up with a new, simpler proof for a famous result in quantum complexity called the "Detectability Lemma." We worked on extending such a proof to more complex cases.</p>
       </div>
-      <div className='line'></div>
-      </div> */}
+        <div className='block'>
+        <p className='subtitle'>WXML Quantum Measurement Models</p>
+        <div className='line'></div>
+        <p className='sub'>Mar 2025 - Jun 2025</p>
+        <p>I participated in the UW Mathematics WXML Research Group. A few other undergrads and I worked alongside Professor Benjamin Feintzeig to investigate models of how quantum measurement works. Specifically we worked with the "method of arbitrary functions" to show that the state collapse that occurs during measurment could be an approximate collapse instead of full. We met weekly to assess progress and ideas, and we presented our work at the end of the quarter to the department.</p>
+      </div>
+      <div className='block'>
+        <p className='subtitle'>Cornbear Grading Assistant</p>
+        <div className='line'></div>
+        <p className='sub'>Jun 2023 - Dec 2024</p>
+        <p>I led a culmination of static analysis and CSEd research project called Cornbear. <br></br> Our goal is to provide an efficient and useful grading assistant to our <a href='https://courses.cs.washington.edu/courses/cse14x/ta/'>CSE12X</a> TAs @ UW!</p>
+      </div>
+      </div>
 
       <p className='title'>Courses <DropDown container='skills-container'/></p>
-      <div className='skills-container'>
+      <div className='skills-container-clicked'>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse121/'>CSE121</a>: Introduction to Computer Programming I</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse122/'>CSE122</a>: Introduction to Computer Programming II</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse123/'>CSE123</a>: Introduction to Computer Programming III</p>
