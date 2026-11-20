@@ -78,13 +78,13 @@ const App = () => {
       <p className='title'>Employment <DropDown container='jobs-container'/></p>
       <div className='jobs-container-clicked'>
 
-        <p><a className='aws' href='https://amazon.jobs/content/en/teams/amazon-security'>AWS</a> Software Development Engineer I</p>
+        <p><a className='aws' href='https://amazon.jobs/content/en/teams/amazon-security'>Amazon</a> Software Development Engineer I</p>
         <div className='line'></div>
         <div className='block'>
         <p className='sub'>Austin TX, Current</p>
         </div>
 
-        <p><a className='aws' href='https://www.amazonfuse.com/'>AWS</a> Software Development Intern</p>
+        <p><a className='aws' href='https://www.amazonfuse.com/'>Amazon</a> Software Development Intern</p>
         <div className='line'></div>
         <div className='block'>
         <p className='sub'>Seattle WA, Jun - Sep 2025</p>
