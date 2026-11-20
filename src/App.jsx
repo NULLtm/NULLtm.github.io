@@ -33,13 +33,13 @@ const App = () => {
       <p className='title'>Owen Boseley</p>
       <p>I like to learn.</p>
       <p>nulltm01 [at] gmail [dot] com</p>
-      <p><a className='bsms' href="https://www.cs.washington.edu/academics/bsms">bsms</a> @ University of Washington</p>
+      <p>sde @ Amazon</p>
       <YearsCounter startDate={new Date(2003, 8, 24)}/>
-      <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/details/featured/1772130911222/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
-      <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin</a>
-      <a className='links' href="https://github.com/NULLtm/cornbear">github</a></p>
+      <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/overlay/1775009586125/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
+      <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin    </a>
+      <a className='links' href="https://github.com/NULLtm/">github</a></p>
 
-      <a className='parag'>Hi. I am always seeking new opportunities in academia, industry, education, and in personal life. Please reach out if you have any ideas! Click the arrows on each category to see more.</a>
+      <a className='parag'>Hi. I like interesting problems. Please reach out if you have any ideas! A little about me below~</a>
 
       <p className='title'>Goals <DropDown container='goals-container'/></p>
       <div className='goals-container-clicked'>
@@ -51,11 +51,13 @@ const App = () => {
         <p className='goals'>TA for CSE431: ✅</p>
         <p className='goals'>Do Research: ✅</p>
         <p className='goals'>Graduate from Undergrad: ✅</p>
-        <p className='goals'>Finish BSMS: ❌</p>
+        <p className='goals'>Finish BSMS: ✅</p>
+        <p className='goals'>Work a normal job: ✅</p>
         <p className='goals'>Run a sub 1:23 Half-Marathon: ❌</p>
         <p className='goals'>Run a sub 3:00 Marathon: ❌</p>
         <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
-        <p className='goals'>Run an Ultra-Marathon ❌</p>
+        <p className='goals'>Run an Ultra-Marathon: ✅</p>
+        <p className='goals'>Get into a PhD program: ❌</p>
       </div>
 
       <p className='title'>Teaching <DropDown container='teaching-container'/></p>
@@ -70,10 +72,18 @@ const App = () => {
         <p className='assignment'>Spring 2025 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/25sp/">CSE421</a> @ University of Washington</p>
         <p className='assignment'>Autumn 2025 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse431/25au/">CSE431</a> @ University of Washington</p>
         <p className='assignment'>Winter 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse312/26wi/">CSE312</a> @ University of Washington</p>
+        <p className='assignment'>Spring 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/26sp/">CSE421</a> @ University of Washington</p>
       </div>
 
       <p className='title'>Employment <DropDown container='jobs-container'/></p>
       <div className='jobs-container-clicked'>
+
+        <p><a className='aws' href='https://amazon.jobs/content/en/teams/amazon-security'>AWS</a> Software Development Engineer I</p>
+        <div className='line'></div>
+        <div className='block'>
+        <p className='sub'>Austin TX, Current</p>
+        </div>
+
         <p><a className='aws' href='https://www.amazonfuse.com/'>AWS</a> Software Development Intern</p>
         <div className='line'></div>
         <div className='block'>
@@ -113,6 +123,12 @@ const App = () => {
 
       <p className='title'>Research <DropDown container='projects-container'/></p>
       <div className='projects-container-clicked'>
+        <div className='block'>
+        <p className='subtitle'>Additional Communication Upper Bounds in Quantum Verification</p>
+        <div className='line'></div>
+        <p className='sub'>Jun 2026 - Dec 2026</p>
+        <p>I did a project with a few friends under Chinmay Nirkhe regarding the communication complexity of quantum verification. We tackled QIP and QMA[k]. We proved upperbounds for QMA[k] and developed mathematics to understand how Cliffords affect the structure of QIP. Preprint to come!</p>
+      </div>
         <div className='block'>
         <p className='subtitle'>Simple Proof Tools for Quantum Hardness of Approximation Results</p>
         <div className='line'></div>
@@ -155,6 +171,13 @@ const App = () => {
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse534/'>CSE534</a>: Graduate Quantum</p>
         <p className='assignment'><a href='https://www.washington.edu/students/crscat/math.html'>MATH521</a>: Graduate Probability 1</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse599k/25au/'>CSE599K</a>: Algorithmic Robust Statistics</p>
+        <p className='assignment'><a href='https://www.andreacoladangelo.com/teaching/modernquantumcryptowi26'>CSE599C</a>: Modern Quantum Cryptography</p>
+        <p className='assignment'><a href=''>CSE590Z1</a>: Analysis of Boolean Functions Seminar</p>
+        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse446/26sp/'>CSE546</a>: Graduate Machine Learning</p>
+        <p className='assignment'><a href=''>CSE531</a>: Graduate Computational Complexity I</p>
+        <p className='assignment'><a href=''>CSE481</a>: Robotics Capstone</p>
+        <p className='assignment'><a href=''>CSE599I</a>: Recent Developments in Communication Complexity</p>
+        <p className='assignment'><a href=''>CSE599C</a>: Quantum Complexity Theory</p>
       </div>
     </div>
     </>
