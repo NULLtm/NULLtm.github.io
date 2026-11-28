@@ -1,11 +1,31 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import YearsCounter from './YearsCounter';
+import github from './imgs/github.png';
+import linkedin from './imgs/linkedin.png';
 import portrait from './imgs/IMG_7719.jpg';
 
 const tabs = ['Profile', 'Research', 'Employment', 'Teaching', 'Courses', 'Goals', 'CV'];
 const birthDate = new Date(2003, 8, 24);
 const resumeUrl = process.env.PUBLIC_URL + '/resume.html';
+
+const goals = [
+  { label: 'Get an Internship', complete: true },
+  { label: 'TA', complete: true },
+  { label: 'TA for CSE311', complete: true },
+  { label: 'TA for CSE421', complete: true },
+  { label: 'TA for CSE312', complete: true },
+  { label: 'TA for CSE431', complete: true },
+  { label: 'Do Research', complete: true },
+  { label: 'Graduate from Undergrad', complete: true },
+  { label: 'Finish BSMS', complete: true },
+  { label: 'Work a normal job', complete: true },
+  { label: 'Run a sub 1:23 Half-Marathon', complete: false },
+  { label: 'Run a sub 3:00 Marathon', complete: false },
+  { label: 'Run a sub 2:52 Marathon', complete: false },
+  { label: 'Run an Ultra-Marathon', complete: true },
+  { label: 'Get into a PhD program', complete: false },
+];
 
 function currentTab() {
   return tabs.find(tab => '#' + tab.toLowerCase() === window.location.hash) || 'Profile';
@@ -20,43 +40,35 @@ export default function App() {
   }, []);
 
   return <div className="shell">
-    <header><a className="monogram" href="#profile" aria-label="Owen Boseley profile">ob.</a>
+    <header>
       <nav aria-label="Portfolio sections">{tabs.map(tab =>
         <a key={tab} href={'#' + tab.toLowerCase()} aria-current={active === tab ? 'page' : undefined}>{tab}</a>
       )}</nav>
+      <nav className="socials" aria-label="Social profiles">
+        <a href="https://github.com/NULLtm/" title="GitHub"><img src={github} alt="GitHub"/></a>
+        <a href="https://www.linkedin.com/in/nullthemoment/" title="LinkedIn"><img src={linkedin} alt="LinkedIn"/></a>
+      </nav>
     </header>
     <main key={active}>
       {active === 'Profile' && <section className="profile">
         <div><p className="kicker">Software Development Engineer · Amazon</p>
-          <h1>Owen<br/><em>Boseley.</em></h1>
+          <h1>Owen Boseley</h1>
           <h2>I like to learn.</h2>
           <p>Hi. I like interesting problems. Please reach out if you have any ideas!</p>
-          <div className="contacts"><a href="https://www.linkedin.com/in/nullthemoment/">LinkedIn</a>
-          <a href="https://github.com/NULLtm/">GitHub</a><a href="#cv">Résumé</a></div>
+
           <p className="email">nulltm01 [at] gmail [dot] com</p>
+          <div className="age"><span>Age in years</span><YearsCounter startDate={birthDate}/></div>
         </div>
         <figure><div className="photo"><img src={portrait} alt="Owen Boseley"/></div>
-          <figcaption><span>Age in years</span><YearsCounter startDate={birthDate}/></figcaption>
         </figure>
       </section>}
       {active !== 'Profile' && <section className="panel"><h1>{active === 'CV' ? 'Résumé / CV' : active}</h1>
-      {active === 'Goals' && <div className='entries goals'>
-<p className='goals'>Get an Internship: ✅</p>
-        <p className='goals'>TA: ✅</p>
-        <p className='goals'>TA for CSE311: ✅</p>
-        <p className='goals'>TA for CSE421: ✅</p>
-        <p className='goals'>TA for CSE312: ✅</p>
-        <p className='goals'>TA for CSE431: ✅</p>
-        <p className='goals'>Do Research: ✅</p>
-        <p className='goals'>Graduate from Undergrad: ✅</p>
-        <p className='goals'>Finish BSMS: ✅</p>
-        <p className='goals'>Work a normal job: ✅</p>
-        <p className='goals'>Run a sub 1:23 Half-Marathon: ❌</p>
-        <p className='goals'>Run a sub 3:00 Marathon: ❌</p>
-        <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
-        <p className='goals'>Run an Ultra-Marathon: ✅</p>
-        <p className='goals'>Get into a PhD program: ❌</p>
-      </div>}
+      {active === 'Goals' && <ul className="goal-list">
+        {goals.map(({ label, complete }) => <li key={label}>
+          <span>{label}</span>
+          <span className={complete ? 'status achieved' : 'status'}>{complete ? 'Achieved' : 'Open'}</span>
+        </li>)}
+      </ul>}
       {active === 'Teaching' && <div className='entries teaching'>
 <p className='assignment'>Spring 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23sp/">CSE123</a> @ University of Washington</p>
         <p className='assignment'>Summer 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23su/">CSE123</a> @ University of Washington</p>
@@ -168,7 +180,7 @@ export default function App() {
         <p className='assignment'><strong>CSE599I</strong>: Recent Developments in Communication Complexity</p>
         <p className='assignment'><strong>CSE599C</strong>: Quantum Complexity Theory</p>
       </div>}
-      {active === 'CV' && <><div className="contacts"><a href={resumeUrl}>Open standalone CV</a><a href="https://www.linkedin.com/in/nullthemoment/overlay/1775009586125/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">Original résumé on LinkedIn</a></div>
+      {active === 'CV' && <><div className="contacts"><a href={resumeUrl}>Open standalone CV</a></div>
       <iframe title="Owen Boseley curriculum vitae" src={resumeUrl}/></>}
       </section>}
     </main>
