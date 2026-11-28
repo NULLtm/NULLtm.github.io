@@ -1,49 +1,47 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import DropDown from './DropDown';
 import YearsCounter from './YearsCounter';
-import cornbear from './imgs/whynot.png';
-import sample from './resources/sample.txt';
-import sampleoutput from './resources/sampleoutput.txt';
-import owenpic from './imgs/IMG_7719.jpg';
+import portrait from './imgs/IMG_7719.jpg';
 
+const tabs = ['Profile', 'Research', 'Employment', 'Teaching', 'Courses', 'Goals', 'CV'];
+const birthDate = new Date(2003, 8, 24);
+const resumeUrl = process.env.PUBLIC_URL + '/resume.html';
 
-const App = () => {
+function currentTab() {
+  return tabs.find(tab => '#' + tab.toLowerCase() === window.location.hash) || 'Profile';
+}
 
-  const [text, setText] = useState('');
-  const [textoutput, setTextoutput] = useState('');
-
+export default function App() {
+  const [active, setActive] = useState(currentTab);
   useEffect(() => {
-    const fetchData = async () => {
-      const res1 = await fetch(sample); // Replace with your file path
-      const data1 = await res1.text();
-      const res2 = await fetch(sampleoutput); // Replace with your file path
-      const data2 = await res2.text();
-      setText(data1);
-      setTextoutput(data2);
-    };
-
-    fetchData();
+    const change = () => setActive(currentTab());
+    window.addEventListener('hashchange', change);
+    return () => window.removeEventListener('hashchange', change);
   }, []);
 
-  return (
-    <>
-    <img className='owen' src={owenpic} alt='owen'></img>
-    <div className='textbox'>
-      <p className='title'>Owen Boseley</p>
-      <p>I like to learn.</p>
-      <p>nulltm01 [at] gmail [dot] com</p>
-      <p>sde @ Amazon</p>
-      <YearsCounter startDate={new Date(2003, 8, 24)}/>
-      <p><a className='links' href="https://www.linkedin.com/in/nullthemoment/overlay/1775009586125/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">resume    </a>      
-      <a className='links' href="https://www.linkedin.com/in/nullthemoment/">linkedin    </a>
-      <a className='links' href="https://github.com/NULLtm/">github</a></p>
-
-      <a className='parag'>Hi. I like interesting problems. Please reach out if you have any ideas! A little about me below~</a>
-
-      <p className='title'>Goals <DropDown container='goals-container'/></p>
-      <div className='goals-container-clicked'>
-        <p className='goals'>Get an Internship: ✅</p>
+  return <div className="shell">
+    <header><a className="monogram" href="#profile" aria-label="Owen Boseley profile">ob.</a>
+      <nav aria-label="Portfolio sections">{tabs.map(tab =>
+        <a key={tab} href={'#' + tab.toLowerCase()} aria-current={active === tab ? 'page' : undefined}>{tab}</a>
+      )}</nav>
+    </header>
+    <main key={active}>
+      {active === 'Profile' && <section className="profile">
+        <div><p className="kicker">Software Development Engineer · Amazon</p>
+          <h1>Owen<br/><em>Boseley.</em></h1>
+          <h2>I like to learn.</h2>
+          <p>Hi. I like interesting problems. Please reach out if you have any ideas!</p>
+          <div className="contacts"><a href="https://www.linkedin.com/in/nullthemoment/">LinkedIn</a>
+          <a href="https://github.com/NULLtm/">GitHub</a><a href="#cv">Résumé</a></div>
+          <p className="email">nulltm01 [at] gmail [dot] com</p>
+        </div>
+        <figure><div className="photo"><img src={portrait} alt="Owen Boseley"/></div>
+          <figcaption><span>Age in years</span><YearsCounter startDate={birthDate}/></figcaption>
+        </figure>
+      </section>}
+      {active !== 'Profile' && <section className="panel"><h1>{active === 'CV' ? 'Résumé / CV' : active}</h1>
+      {active === 'Goals' && <div className='entries goals'>
+<p className='goals'>Get an Internship: ✅</p>
         <p className='goals'>TA: ✅</p>
         <p className='goals'>TA for CSE311: ✅</p>
         <p className='goals'>TA for CSE421: ✅</p>
@@ -58,11 +56,9 @@ const App = () => {
         <p className='goals'>Run a sub 2:52 Marathon: ❌</p>
         <p className='goals'>Run an Ultra-Marathon: ✅</p>
         <p className='goals'>Get into a PhD program: ❌</p>
-      </div>
-
-      <p className='title'>Teaching <DropDown container='teaching-container'/></p>
-      <div className='teaching-container-clicked'>
-        <p className='assignment'>Spring 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23sp/">CSE123</a> @ University of Washington</p>
+      </div>}
+      {active === 'Teaching' && <div className='entries teaching'>
+<p className='assignment'>Spring 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23sp/">CSE123</a> @ University of Washington</p>
         <p className='assignment'>Summer 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse123/23su/">CSE123</a> @ University of Washington</p>
         <p className='assignment'>Autumn 2023 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/23au/">CSE311</a> @ University of Washington</p>
         <p className='assignment'>Winter 2024 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse311/24wi/">CSE311</a> @ University of Washington</p>
@@ -73,12 +69,9 @@ const App = () => {
         <p className='assignment'>Autumn 2025 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse431/25au/">CSE431</a> @ University of Washington</p>
         <p className='assignment'>Winter 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse312/26wi/">CSE312</a> @ University of Washington</p>
         <p className='assignment'>Spring 2026 : Teaching Assistant for <a href="https://courses.cs.washington.edu/courses/cse421/26sp/">CSE421</a> @ University of Washington</p>
-      </div>
-
-      <p className='title'>Employment <DropDown container='jobs-container'/></p>
-      <div className='jobs-container-clicked'>
-
-        <p><a className='aws' href='https://amazon.jobs/content/en/teams/amazon-security'>Amazon</a> Software Development Engineer I</p>
+      </div>}
+      {active === 'Employment' && <div className='entries employment'>
+<p><a className='aws' href='https://amazon.jobs/content/en/teams/amazon-security'>Amazon</a> Software Development Engineer I</p>
         <div className='line'></div>
         <div className='block'>
         <p className='sub'>Austin TX, Current</p>
@@ -119,11 +112,9 @@ const App = () => {
         <div className='block'>
         <p className='sub'>Gig Harbor WA, Jun 2021 - Sep 2021</p>
         </div>
-      </div>
-
-      <p className='title'>Research <DropDown container='projects-container'/></p>
-      <div className='projects-container-clicked'>
-        <div className='block'>
+      </div>}
+      {active === 'Research' && <div className='entries research'>
+<div className='block'>
         <p className='subtitle'>Additional Communication Upper Bounds in Quantum Verification</p>
         <div className='line'></div>
         <p className='sub'>Jun 2026 - Dec 2026</p>
@@ -147,11 +138,9 @@ const App = () => {
         <p className='sub'>Jun 2023 - Dec 2024</p>
         <p>I led a culmination of static analysis and CSEd research project called Cornbear. <br></br> Our goal is to provide an efficient and useful grading assistant to our <a href='https://courses.cs.washington.edu/courses/cse14x/ta/'>CSE12X</a> TAs @ UW!</p>
       </div>
-      </div>
-
-      <p className='title'>Courses <DropDown container='skills-container'/></p>
-      <div className='skills-container-clicked'>
-        <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse121/'>CSE121</a>: Introduction to Computer Programming I</p>
+      </div>}
+      {active === 'Courses' && <div className='entries courses'>
+<p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse121/'>CSE121</a>: Introduction to Computer Programming I</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse122/'>CSE122</a>: Introduction to Computer Programming II</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse123/'>CSE123</a>: Introduction to Computer Programming III</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse311/'>CSE311</a>: Foundations of Computing I</p>
@@ -172,16 +161,16 @@ const App = () => {
         <p className='assignment'><a href='https://www.washington.edu/students/crscat/math.html'>MATH521</a>: Graduate Probability 1</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse599k/25au/'>CSE599K</a>: Algorithmic Robust Statistics</p>
         <p className='assignment'><a href='https://www.andreacoladangelo.com/teaching/modernquantumcryptowi26'>CSE599C</a>: Modern Quantum Cryptography</p>
-        <p className='assignment'><a href=''>CSE590Z1</a>: Analysis of Boolean Functions Seminar</p>
+        <p className='assignment'><strong>CSE590Z1</strong>: Analysis of Boolean Functions Seminar</p>
         <p className='assignment'><a href='https://courses.cs.washington.edu/courses/cse446/26sp/'>CSE546</a>: Graduate Machine Learning</p>
-        <p className='assignment'><a href=''>CSE531</a>: Graduate Computational Complexity I</p>
-        <p className='assignment'><a href=''>CSE481</a>: Robotics Capstone</p>
-        <p className='assignment'><a href=''>CSE599I</a>: Recent Developments in Communication Complexity</p>
-        <p className='assignment'><a href=''>CSE599C</a>: Quantum Complexity Theory</p>
-      </div>
-    </div>
-    </>
-  );
-};
-
-export default App;
+        <p className='assignment'><strong>CSE531</strong>: Graduate Computational Complexity I</p>
+        <p className='assignment'><strong>CSE481</strong>: Robotics Capstone</p>
+        <p className='assignment'><strong>CSE599I</strong>: Recent Developments in Communication Complexity</p>
+        <p className='assignment'><strong>CSE599C</strong>: Quantum Complexity Theory</p>
+      </div>}
+      {active === 'CV' && <><div className="contacts"><a href={resumeUrl}>Open standalone CV</a><a href="https://www.linkedin.com/in/nullthemoment/overlay/1775009586125/single-media-viewer/?profileId=ACoAADMPyrwBtcOe0KQopVuz5z0L4snRrD9taVQ">Original résumé on LinkedIn</a></div>
+      <iframe title="Owen Boseley curriculum vitae" src={resumeUrl}/></>}
+      </section>}
+    </main>
+  </div>;
+}

@@ -17,8 +17,7 @@ const YearsCounter = ({ startDate }) => {
       setYears(calculatePreciseYears(startDate));
     };
 
-    // Update every day (in milliseconds)
-    const interval = setInterval(updateYears, 1);
+    const interval = setInterval(updateYears, 250);
 
     // Clear interval on component unmount
     return () => clearInterval(interval);
