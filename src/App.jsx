@@ -17,6 +17,7 @@ const goals = [
   { label: 'TA for CSE312', complete: true },
   { label: 'TA for CSE431', complete: true },
   { label: 'Do Research', complete: true },
+  { label: 'Get my research published', complete: false },
   { label: 'Graduate from Undergrad', complete: true },
   { label: 'Finish BSMS', complete: true },
   { label: 'Work a normal job', complete: true },
@@ -53,8 +54,21 @@ export default function App() {
       {active === 'Profile' && <section className="profile">
         <div><p className="kicker">Software Development Engineer · Amazon</p>
           <h1>Owen Boseley</h1>
-          <h2>I like to learn.</h2>
-          <p>Hi. I like interesting problems. Please reach out if you have any ideas!</p>
+          <p>A little about me ~ I care a lot about making math digestable for everyone (that includes me!). I dabble a bit in every part of theoretical computer science, but the following questions fill a lot of my time currently:</p>
+          <ul>
+            <li>What is the correct measure of hardness in computation?</li>
+            <li>How best can we utilize hardness?</li>
+            <li>What are the limits of communication between two parties?</li>
+            <li>Is quantum information more powerful than classical?</li>
+            <li>In what ways is QIP different than its twin, IP?</li>
+          </ul>
+          <p>And some more exotic questions of mine:</p>
+          <ul>
+            <li>How best can we navigate math, learning, and merit in the age of AI?</li>
+            <li>How best can we convince the next generation to care about theoretical computer science?</li>
+            <li>How best can we teach them about this field?</li>
+          </ul>
+          <p>If any of these questions also interest you, please reach out!!</p>
 
           <p className="email">nulltm01 [at] gmail [dot] com</p>
           <div className="age"><span>Age in years</span><YearsCounter startDate={birthDate}/></div>
